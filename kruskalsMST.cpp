@@ -1,10 +1,21 @@
+//minimum spanning tree using kruskals algorithm
+//-----kruskals algorithm-----
+//1.select a mimimum edge from all edges and connect them those who didnt connect cycle
+//2.repeat until tree contains n-1 edges
+
+
 #include<bits/stdc++.h>
 using namespace std;
+
+
+// to check the parent of a node
 int find(int x,vector<int>&parent){
 	if(parent[x]==x) return x;
 	return parent[x]=find(parent[x],parent);
 }
 
+
+// to connect the edge without connecting a cycle 
 void unionf(int a,int b,vector<int>&parent,vector<int>&rank){
 	a=find(a,parent);
 	b=find(b,parent);
